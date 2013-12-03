@@ -1,0 +1,13 @@
+{
+	"installed_packages":
+	[
+		"Cheetah Syntax Highlighting",
+		"FileDiffs",
+		"Jedi - Python autocompletion",
+		"Puppet",
+		"SideBarEnhancements",
+		"SublimeGit",
+		"SublimeREPL",
+		"Sublimerge Pro"
+	]
+}

@@ -1,0 +1,4 @@
+{
+	"cmd": ["git", "review"],
+	"selector": "source.python"
+}
