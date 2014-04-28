@@ -1,12 +1,17 @@
 {
+	"http_proxy": "http://10.197.217.62:3128",
+	"https_proxy": "http://10.197.217.62:3128",
 	"installed_packages":
 	[
 		"Cheetah Syntax Highlighting",
 		"FileDiffs",
 		"Jedi - Python autocompletion",
 		"Puppet",
+		"Restructured Text (RST) Snippets",
+		"RestructuredText Improved",
 		"SideBarEnhancements",
 		"SublimeGit",
+		"SublimePythonIDE",
 		"SublimeREPL",
 		"Sublimerge Pro"
 	]

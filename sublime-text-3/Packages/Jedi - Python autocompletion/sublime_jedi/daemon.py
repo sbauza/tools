@@ -20,7 +20,7 @@ auto_complete_function_params = 'required'
 
 class JsonFormatter(logging.Formatter):
     def format(self, record):
-        output = super(JsonFormatter, self).format(record)
+        output = logging.Formatter.format(self, record)
         data = {
             'logging': record.levelname.lower(),
             'content': output
@@ -38,6 +38,9 @@ def getLogger():
     hdlr.setFormatter(formatter)
     log.addHandler(hdlr)
     return log
+
+
+logger = getLogger()
 
 
 def write(data):
@@ -116,7 +119,7 @@ class JediFacade:
         try:
             return getattr(self, 'get_' + action)()
         except:
-            logging.exception('`JediFacade.get_{0}` failed'.format(action))
+            logger.exception('`JediFacade.get_{0}` failed'.format(action))
 
     def get_goto(self):
         """ Jedi "Go To Definition" """
@@ -193,7 +196,7 @@ class JediFacade:
         :rtype: list of (str, int, int)
         """
         usages = self.script.usages()
-        return [(i.module_path, i.line, i.column)
+        return [(i.module_path, i.line, i.column + 1)
                 for i in usages if not i.in_builtin_module()]
 
     def _complete_call_assigments(self):
@@ -274,7 +277,6 @@ if __name__ == '__main__':
     is_funcargs_complete_enabled = bool(options.function_params)
     auto_complete_function_params = options.function_params
 
-    logger = getLogger()
     logger.info(
         'Daemon started. '
         'extra folders - %s, '
